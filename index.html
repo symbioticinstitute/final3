@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Achievements - Educational Excellence</title>
+    <!-- بسم الله الرحمن الرحيم -->
+    <style>
+        :root {
+            --primary: #1b6411;
+            --accent: #10b981;
+            --bg-light: #f8fafc;
+            --dark: #1f2937;
+            --white: #ffffff;
+            --gray-600: #4b5563;
+            --light-green: #dcfce7;
+            --yellow: #fef3c7;
+            --orange: #fed7aa;
+            --purple: #e9d5ff;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background: var(--bg-light); 
+            color: var(--dark); 
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px; 
+            background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(20px);
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .logo-subtitle {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        header .home-link { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-weight: 600; 
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        header .home-link:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Hero Banner */
+        .hero { 
+            position: relative; 
+            padding: 80px 20px; 
+            background: linear-gradient(135deg, var(--primary), var(--accent)); 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            color: var(--white); 
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        /* Floating shapes */
+        .shape { 
+            position: absolute; 
+            opacity: 0.15; 
+            animation: float 6s ease-in-out infinite; 
+        }
+
+        .shape.circle { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 50%; 
+            background: var(--accent); 
+            top: 10%; 
+            left: 10%; 
+        }
+
+        .shape.square { 
+            width: 100px; 
+            height: 100px; 
+            background: var(--white); 
+            bottom: 15%; 
+            right: 15%; 
+            border-radius: 20px;
+        }
+
+        .shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 80px solid var(--white);
+            top: 20%;
+            right: 10%;
+            animation-delay: -2s;
+        }
+
+        @keyframes float { 
+            0%, 100% { transform: translateY(0) rotate(0deg); } 
+            50% { transform: translateY(-20px) rotate(5deg); } 
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            padding: 60px 20px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid var(--accent);
+        }
+
+        .stat-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-value { 
+            font-size: 2rem; 
+            font-weight: 700; 
+            margin-bottom: 5px; 
+            color: var(--primary); 
+        }
+
+        .stat-label { 
+            font-size: 0.9rem; 
+            color: var(--gray-600); 
+        }
+
+        /* Main Content */
+        .section { 
+            padding: 60px 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .year-title { 
+            font-size: 2rem; 
+            margin-bottom: 40px; 
+            color: var(--primary); 
+            text-align: center; 
+            padding: 25px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cards { 
+            display: grid; 
+            gap: 30px; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        }
+
+        .card { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+            text-align: center; 
+            transition: all 0.3s;
+            border-left: 5px solid var(--accent);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 50%; 
+            overflow: hidden; 
+            margin: 0 auto 20px; 
+            border: 4px solid var(--accent); 
+            background: linear-gradient(135deg, var(--light-green), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .photo img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        .name { 
+            font-weight: 700; 
+            margin-bottom: 15px; 
+            font-size: 1.3rem;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 12px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(27, 100, 17, 0.3);
+        }
+
+        .school { 
+            font-size: 1rem; 
+            margin-bottom: 15px; 
+            color: var(--white); 
+            background: linear-gradient(135deg, var(--accent), #059669);
+            padding: 10px 18px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .percent { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: var(--white); 
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+        }
+
+        .admission { 
+            font-size: 1rem; 
+            font-weight: 600; 
+            color: var(--dark); 
+            margin-bottom: 10px;
+            background: var(--yellow);
+            padding: 10px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 3px 10px rgba(254, 243, 199, 0.5);
+        }
+
+        .achievement-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .more-students {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--purple), var(--orange));
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* JEE Special Layout */
+        .jee-highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            border: none;
+        }
+
+        .jee-highlight .school,
+        .jee-highlight .admission {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .jee-highlight .percent {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Two column layout for featured students */
+        .two-col { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 40px; 
+            align-items: center;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .featured-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .featured-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px solid var(--accent);
+            background: var(--light-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto;
+        }
+
+        .featured-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            padding: 18px 40px;
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100vw; 
+            height: 100vh; 
+            background: rgba(0, 0, 0, 0.6); 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 200; 
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content { 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 20px; 
+            text-align: center; 
+            max-width: 90%; 
+            width: 400px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-600);
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            margin-bottom: 25px;
+            color: var(--gray-600);
+        }
+
+        .modal-content button { 
+            margin-top: 20px; 
+            padding: 15px 30px; 
+            background: linear-gradient(135deg, var(--primary), var(--accent)); 
+            color: var(--white); 
+            border: none; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .modal-content button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .logo {
+                font-size: 18px;
+                line-height: 1.2;
+            }
+            
+            .logo-subtitle {
+                font-size: 11px;
+            }
+            
+            header .home-link {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+            
+            .hero h1 { 
+                font-size: 1.8rem; 
+                line-height: 1.2;
+            }
+            
+            .hero p { 
+                font-size: 1rem; 
+            }
+            
+            .year-title {
+                font-size: 1.4rem;
+                line-height: 1.3;
+                padding: 20px 15px;
+            }
+            
+            .two-col { 
+                grid-template-columns: 1fr; 
+                text-align: center;
+                padding: 25px;
+            }
+            
+            .cards { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .featured-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .cta h2 { 
+                font-size: 1.8rem; 
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+                line-height: 1.2;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 40px 15px;
+            }
+            .card {
+                padding: 20px;
+            }
+            .hero {
+                padding: 60px 15px;
+            }
+            .year-title {
+                font-size: 1.2rem;
+                padding: 18px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            🏆 Our Achievements
+            <div class="logo-subtitle">(Overseas Education Division)</div>
+        </div>
+        <a href="https://your-main-website.com" class="home-link">Back to Home</a>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>Celebrating Academic Excellence</h1>
+        <p>Discover the outstanding achievements of our students in CBSE Board Examinations and competitive entrance tests. Every success story represents dedication, hard work, and quality education.</p>
+        <div class="hero-subtitle">✨ Inspiring Tomorrow's Leaders Today ✨</div>
+        <div class="shape circle"></div>
+        <div class="shape square"></div>
+        <div class="shape triangle"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🎓</div>
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Students from different Indian Schools in Gulf Countries</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value">98%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-value">90+</div>
+                <div class="stat-label">Above 90% Marks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-value">30+</div>
+                <div class="stat-label">School Toppers</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CBSE Class 10 Results 2025 -->
+    <section class="section" id="cbse10-2025">
+        <h2 class="year-title">🎉 CBSE Class 10 Results 2025 - Latest Achievement</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="achievement-badge">🏆</div>
+                <div class="photo">Mehreen Shaikh</div>
+                <div class="name">Mehreen Shaikh</div>
+                <div class="school">Indian School Seeb, Oman</div>
+                <div class="percent">96%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">⭐</div>
+                <div class="photo">Safiya Areej</div>
+                <div class="name">Safiya Areej</div>
+                <div class="school">Indian School Nizwa, Oman</div>
+                <div class="percent">95%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">🌟</div>
+                <div class="photo">Haziq Rizvi</div>
+                <div class="name">Haziq Rizvi</div>
+                <div class="school">Indian School Al Wadi Al Kabir, Muscat, Oman</div>
+                <div class="percent">94%</div>
+            </div>
+        </div>
+        <div class="more-students">+ Many More Outstanding Results! 🌟</div>
+    </section>
+
+    <!-- JEE Main 2024 Featured -->
+    <section class="section" id="jee-2024">
+        <h2 class="year-title">🎯 JEE (Main) Result - 2024 (Overseas Division)</h2>
+        <div class="two-col">
+            <div class="featured-content">
+                <h3>Kasib Rizvi</h3>
+                <div class="school">Indian School Al Wadi Al Kabir, Muscat, Oman</div>
+                <div class="percent">Percentile: 95.8</div>
+                <div class="admission">Admission: NIT Delhi (AI & Data Science)</div>
+            </div>
+            <div class="featured-photo">
+                <img src="placeholder-for-kasib-photo.jpg" alt="Kasib Rizvi" style="display: none;">
+                🎓
+            </div>
+        </div>
+    </section>
+
+    <!-- CBSE Class 10 Results 2024 -->
+    <section class="section" id="cbse10-2024">
+        <h2 class="year-title">📚 CBSE Class 10 Results - 2024</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="achievement-badge">🏆</div>
+                <div class="photo">Insha Kamran</div>
+                <div class="name">Insha Kamran</div>
+                <div class="school">Indian School Sur, Oman</div>
+                <div class="percent">97%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">⭐</div>
+                <div class="photo">Bushra Shaikh</div>
+                <div class="name">Bushra Shaikh</div>
+                <div class="school">LPS Sharjah, UAE</div>
+                <div class="percent">96%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">🌟</div>
+                <div class="photo">Aariz Ahmad</div>
+                <div class="name">Aariz Ahmad</div>
+                <div class="school">The Central School Dubai, UAE</div>
+                <div class="percent">95%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">🎯</div>
+                <div class="photo">Nabil Ahmad</div>
+                <div class="name">Nabil Ahmad</div>
+                <div class="school">Indian School Seeb, Oman</div>
+                <div class="percent">95%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">⭐</div>
+                <div class="photo">Abdullah Minhaj</div>
+                <div class="name">Abdullah Minhaj</div>
+                <div class="school">Indian School Sohar, Oman</div>
+                <div class="percent">95%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">🌟</div>
+                <div class="photo">Syed Arsalan</div>
+                <div class="name">Syed Arsalan</div>
+                <div class="school">The Central School Dubai, UAE</div>
+                <div class="percent">93%</div>
+            </div>
+        </div>
+        <div class="more-students">+ Many More Exceptional Achievers! 🎉</div>
+    </section>
+
+    <!-- CBSE Class 10 Results 2023 -->
+    <section class="section" id="cbse10-2023">
+        <h2 class="year-title">📈 CBSE Class 10 Results - 2023 (Online Coaching)</h2>
+        <div class="stats-grid" style="margin-bottom: 40px;">
+            <div class="stat-card">
+                <div class="stat-value">50%</div>
+                <div class="stat-label">Scored > 90%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">30%</div>
+                <div class="stat-label">Scored > 80%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">20%</div>
+                <div class="stat-label">Scored < 80%</div>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="achievement-badge">🏆</div>
+                <div class="photo">Sana Parween</div>
+                <div class="name">Sana Parween</div>
+                <div class="school">Indian School Valerise, Muscat, Oman</div>
+                <div class="percent">95.8%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">⭐</div>
+                <div class="photo">Ayan Iqbal</div>
+                <div class="name">Ayan Iqbal</div>
+                <div class="school">AK English School Muralesh, India</div>
+                <div class="percent">95%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">🌟</div>
+                <div class="photo">Athif Kalim</div>
+                <div class="name">Athif Kalim</div>
+                <div class="school">Indian School Muscat, Oman</div>
+                <div class="percent">93.0%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">🎯</div>
+                <div class="photo">Shayista Fatima</div>
+                <div class="name">Shayista Fatima</div>
+                <div class="school">Indian School Valerise, Muscat, Oman</div>
+                <div class="percent">92%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">⭐</div>
+                <div class="photo">Zainab Hafeez</div>
+                <div class="name">Zainab Hafeez</div>
+                <div class="school">Indian School Seeb, Oman</div>
+                <div class="percent">91.2%</div>
+            </div>
+            <div class="card">
+                <div class="achievement-badge">🌟</div>
+                <div class="photo">Sadiya Imran</div>
+                <div class="name">Sadiya Imran</div>
+                <div class="school">Indian School Al Wadi Al Kabir, Oman</div>
+                <div class="percent">91%</div>
+            </div>
+        </div>
+        <div class="more-students">+ Many More Success Stories! 🚀</div>
+    </section>
+
+    <!-- Academic Year 2022 Highlight -->
+    <section class="section" id="highlight-2022">
+        <h2 class="year-title">🌟 Academic Year 2022 Highlight</h2>
+        <div class="two-col">
+            <div class="featured-content">
+                <h3>Ramisa Parween</h3>
+                <div class="school">Indian School Al Maabela, Muscat</div>
+                <div class="percent">Overall: 94.2%</div>
+                <div class="admission">PCB: 96%</div>
+                <div style="margin-top: 15px; padding: 15px; background: var(--yellow); border-radius: 15px;">
+                    <strong>Achievements:</strong> School Topper; Among top students in Indian schools in Muscat
+                </div>
+            </div>
+            <div class="featured-photo">🏆</div>
+        </div>
+        <div class="more-students">+ Many More Brilliant Minds! ✨</div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Join Our Success Story</h2>
+        <p>Ready to achieve academic excellence? Let us guide your child to outstanding results like these achievers!</p>
+        <a href="https://your-main-website.com/contact" class="cta-button">🚀 Start Your Journey Today</a>
+    </section>
+
+    <!-- Timed Popup Modal -->
+    <div class="modal" id="promo-modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">✕</div>
+            <h3>🎉 Witness Excellence in Action!</h3>
+            <p>These remarkable results speak for themselves. Your child could be our next success story!</p>
+            <button onclick="location.href='https://your-main-website.com/contact'">💬 Contact Us Now</button>
+        </div>
+    </div>
+
+    <script>
+        // Show modal after 45 seconds (increased from 15)
+        setTimeout(() => { 
+            document.getElementById('promo-modal').style.display = 'flex'; 
+        }, 45000);
+        
+        // Close modal function
+        function closeModal() {
+            document.getElementById('promo-modal').style.display
