@@ -35,6 +35,7 @@
             line-height: 1.6;
             position: relative;
             overflow-x: hidden;
+            padding-bottom: 70px; /* Space for mobile sticker */
         }
 
         /* Header */
@@ -124,34 +125,36 @@
             border-radius: 30px;
         }
 
-        /* Scrolling Marquee */
+        /* Scrolling Marquee - Fixed Version */
         .marquee-section {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             overflow: hidden;
             position: relative;
-        }
-
-        .marquee {
             padding: 15px 0;
             background: rgba(255,255,255,0.2);
             border-top: 1px solid rgba(255,255,255,0.3);
             border-bottom: 1px solid rgba(255,255,255,0.3);
-            overflow: hidden;
-            white-space: nowrap;
+        }
+
+        .marquee-container {
+            display: flex;
+            width: 200%; /* Double width for seamless looping */
+            animation: marquee 25s linear infinite;
         }
 
         .marquee-content {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
+            flex: 0 0 50%; /* Each copy takes 50% of container */
+            padding: 0 20px;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
         }
 
         .marquee-text {
-            display: inline-block;
-            padding: 0 50px;
             font-size: 1.1rem;
             font-weight: 500;
             color: var(--white);
+            display: inline-block;
         }
 
         @keyframes marquee {
@@ -580,7 +583,7 @@
             transform: translateY(-2px);
         }
 
-        /* Floating Sticker */
+        /* Floating Sticker - Works on all devices */
         .floating-sticker {
             position: fixed;
             right: 0;
@@ -598,12 +601,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .sticker-text {
             writing-mode: vertical-rl;
             text-orientation: mixed;
-            transform: rotate(180deg);
             font-weight: 700;
             font-size: 1.1rem;
             letter-spacing: 1px;
@@ -614,53 +613,21 @@
             transform: translateY(-50%) translateX(-5px);
         }
 
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 40px 20px;
+        /* Mobile Floating Sticker */
+        .mobile-floating-sticker {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary), #a61e4d);
+            color: white;
+            padding: 15px;
+            z-index: 1000;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
             text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            text-align: left;
-        }
-
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column ul li a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--accent);
-        }
-
-        .copyright {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #9ca3af;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
         /* Mobile Responsive */
@@ -738,9 +705,12 @@
                 display: none;
             }
             
+            .mobile-floating-sticker {
+                display: block;
+            }
+            
             .marquee-text {
                 font-size: 0.9rem;
-                padding: 0 30px;
             }
         }
 
@@ -765,6 +735,24 @@
                 width: 130px;
                 height: 130px;
             }
+            
+            .marquee-content {
+                padding: 0 10px;
+            }
+            
+            .marquee-text {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Copyright */
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 1px solid rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -794,11 +782,13 @@
         <div class="shape star">⭐</div>
     </section>
 
-    <!-- Scrolling Marquee -->
+    <!-- Scrolling Marquee - Fixed Version -->
     <div class="marquee-section">
-        <div class="marquee">
+        <div class="marquee-container">
             <div class="marquee-content">
                 <span class="marquee-text">We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</span>
+            </div>
+            <div class="marquee-content">
                 <span class="marquee-text">We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</span>
             </div>
         </div>
@@ -810,7 +800,7 @@
             <div class="stat-card">
                 <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
                 <div class="stat-value">500+</div>
-                <div class="stat-label">Students from different Indian Schools in Gulf Countries</div>
+                <div class="stat-label">Students from Gulf Countries</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
@@ -1013,39 +1003,19 @@
         <div class="shape triangle" style="bottom: 10%; right: 5%;"></div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>About Us</h3>
-                <p>We provide quality education to Indian students in Gulf countries, helping them achieve academic excellence and secure admissions in top institutions.</p>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Courses</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
-                    <li><i class="fas fa-phone"></i> +971 123 456 789</li>
-                    <li><i class="fas fa-envelope"></i> info@educationalexcellence.com</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2025 Educational Excellence. All rights reserved.
-        </div>
-    </footer>
+    <!-- Copyright -->
+    <div class="copyright">
+        &copy; 2025 Educational Excellence. All rights reserved.
+    </div>
 
-    <!-- Floating Sticker -->
+    <!-- Floating Sticker for Desktop -->
     <div class="floating-sticker" onclick="window.location.href='https://your-main-website.com/about'">
-        <div class="sticker-text">About Us</div>
+        About Us
+    </div>
+
+    <!-- Floating Sticker for Mobile -->
+    <div class="mobile-floating-sticker" onclick="window.location.href='https://your-main-website.com/about'">
+        About Us
     </div>
 
     <!-- Timed Popup Modal -->
@@ -1087,4 +1057,4 @@
         });
     </script>
 </body>
-</html>v
+</html>
