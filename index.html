@@ -69,23 +69,24 @@
             margin-top: 2px;
         }
 
-        header .home-link { 
+        header .contact-link { 
             text-decoration: none; 
-            color: var(--primary); 
+            color: var(--white); 
             font-weight: 600; 
-            padding: 10px 20px;
-            border: 2px solid var(--primary);
+            padding: 12px 25px;
             border-radius: 8px;
             transition: all 0.3s;
             white-space: nowrap;
             display: flex;
             align-items: center;
             gap: 8px;
+            background: linear-gradient(135deg, var(--secondary), #a61e4d);
+            box-shadow: 0 4px 15px rgba(214, 51, 108, 0.3);
         }
 
-        header .home-link:hover {
-            background: var(--primary);
-            color: var(--white);
+        header .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(214, 51, 108, 0.4);
         }
 
         /* Hero Banner */
@@ -614,6 +615,66 @@
             transform: translateY(-2px);
         }
 
+        /* Contact Modal */
+        .contact-modal-content {
+            background: linear-gradient(135deg, #f5f7fa, #e4edf9);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            position: relative;
+            animation: popIn 0.4s ease-out;
+        }
+
+        .contact-modal-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-modal-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .phone-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .phone-number:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .thank-you {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+        }
+
         /* Floating Sticker for Desktop */
         .floating-sticker {
             position: fixed;
@@ -688,9 +749,9 @@
                 font-size: 11px;
             }
             
-            header .home-link {
+            header .contact-link {
                 font-size: 14px;
-                padding: 8px 15px;
+                padding: 10px 20px;
             }
             
             .hero h1 { 
@@ -742,6 +803,16 @@
                 margin: 20px;
             }
             
+            .contact-modal-content {
+                padding: 30px 20px;
+                width: 90%;
+            }
+            
+            .phone-number {
+                font-size: 1.4rem;
+                padding: 15px;
+            }
+            
             .floating-sticker {
                 display: none;
             }
@@ -780,6 +851,12 @@
             .gradient-text {
                 font-size: 0.8rem;
             }
+            
+            .phone-number {
+                font-size: 1.2rem;
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -793,8 +870,8 @@
                 <div class="logo-subtitle">(Overseas Education Division)</div>
             </div>
         </div>
-        <a href="https://your-main-website.com" class="home-link">
-            <i class="fas fa-home"></i> Back to Home
+        <a href="#" class="contact-link" onclick="openContactModal()">
+            <i class="fas fa-phone-alt"></i> Contact Us
         </a>
     </header>
 
@@ -880,7 +957,8 @@
                 <div class="admission">Admission: NIT Delhi (AI & Data Science)</div>
             </div>
             <div class="featured-photo">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" alt="Kasib Rizvi">
+                <!-- ACTUAL IMAGE REPLACEMENT -->
+                <img src="https://your-actual-website.com/images/kasib-rizvi.jpg" alt="Kasib Rizvi">
             </div>
         </div>
     </section>
@@ -1026,7 +1104,8 @@
     <section class="cta">
         <h2>Join Our Success Story</h2>
         <p>Ready to achieve academic excellence? Let us guide your child to outstanding results like these achievers!</p>
-        <a href="https://your-main-website.com/contact" class="cta-button">🚀 Start Your Journey Today</a>
+        <!-- ACTUAL CTA LINK -->
+        <a href="https://your-actual-website.com/contact" class="cta-button">🚀 Start Your Journey Today</a>
         <div class="shape circle" style="top: 10%; left: 5%; width: 80px; height: 80px;"></div>
         <div class="shape triangle" style="bottom: 10%; right: 5%;"></div>
     </section>
@@ -1037,35 +1116,62 @@
     </div>
 
     <!-- Floating Sticker for Desktop -->
-    <div class="floating-sticker" onclick="window.location.href='https://your-main-website.com/about'">
+    <!-- ACTUAL ABOUT US LINK -->
+    <div class="floating-sticker" onclick="window.location.href='https://your-actual-website.com/about'">
         About Us
     </div>
 
     <!-- Floating Sticker for Mobile -->
-    <div class="mobile-floating-sticker" onclick="window.location.href='https://your-main-website.com/about'">
+    <!-- ACTUAL ABOUT US LINK -->
+    <div class="mobile-floating-sticker" onclick="window.location.href='https://your-actual-website.com/about'">
         About Us
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <div class="modal-close" onclick="closeContactModal()">✕</div>
+            <h3><i class="fas fa-headset"></i> Contact Us</h3>
+            <p>If you have any questions to ask, please contact us. We will be happy to help you!</p>
+            <div class="phone-number">
+                <i class="fas fa-phone-alt"></i> 09149822922
+            </div>
+            <div class="thank-you">
+                <i class="fas fa-heart"></i> Thank You!
+            </div>
+        </div>
     </div>
 
     <!-- Timed Popup Modal -->
     <div class="modal" id="promo-modal">
         <div class="modal-content">
-            <div class="modal-close" onclick="closeModal()">✕</div>
+            <div class="modal-close" onclick="closePromoModal()">✕</div>
             <h3>🎉 Witness Excellence in Action!</h3>
             <p>These remarkable results speak for themselves. Your child could be our next success story!</p>
-            <button onclick="location.href='https://your-main-website.com/contact'">💬 Contact Us Now</button>
+            <!-- ACTUAL CONTACT LINK -->
+            <button onclick="location.href='https://your-actual-website.com/contact'">💬 Contact Us Now</button>
         </div>
     </div>
 
     <script>
-        // Show modal after 45 seconds
+        // Contact modal functions
+        function openContactModal() {
+            document.getElementById('contact-modal').style.display = 'flex'; 
+        }
+        
+        function closeContactModal() {
+            document.getElementById('contact-modal').style.display = 'none';
+        }
+        
+        // Promo modal functions
+        function closePromoModal() {
+            document.getElementById('promo-modal').style.display = 'none';
+        }
+        
+        // Show promo modal after 45 seconds
         setTimeout(() => { 
             document.getElementById('promo-modal').style.display = 'flex'; 
         }, 45000);
-        
-        // Close modal function
-        function closeModal() {
-            document.getElementById('promo-modal').style.display = 'none';
-        }
         
         // Add subtle animations to cards on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -1081,6 +1187,15 @@
                         card.style.transform = 'translateY(0)';
                     }, 100);
                 }, 200 + (index * 100));
+            });
+            
+            // Close modals if clicked outside content
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
