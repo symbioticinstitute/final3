@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Achievements - Educational Excellence</title>
+    <title>Educational Excellence - Our Achievements</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -35,7 +35,7 @@
             line-height: 1.6;
             position: relative;
             overflow-x: hidden;
-            padding-bottom: 70px; /* Space for mobile sticker */
+            padding-bottom: 80px; /* Space for mobile sticker */
         }
 
         /* Header */
@@ -125,41 +125,39 @@
             border-radius: 30px;
         }
 
-        /* Scrolling Marquee - Fixed Version */
-        .marquee-section {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        /* Scrolling Marquee - Fixed and Reliable */
+        .gradient-banner {
+            margin-top: 20px;
+            padding: 15px 0;
+            border-radius: 6px;
             overflow: hidden;
             position: relative;
-            padding: 15px 0;
-            background: rgba(255,255,255,0.2);
-            border-top: 1px solid rgba(255,255,255,0.3);
-            border-bottom: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background: linear-gradient(-45deg, #1b6411, #10b981, #2c3e50, #8e44ad);
+            background-size: 400% 400%;
+            animation: gradient-shift 8s ease infinite;
         }
-
-        .marquee-container {
-            display: flex;
-            width: 200%; /* Double width for seamless looping */
-            animation: marquee 25s linear infinite;
-        }
-
-        .marquee-content {
-            flex: 0 0 50%; /* Each copy takes 50% of container */
-            padding: 0 20px;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-        }
-
-        .marquee-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--white);
+        
+        .gradient-text {
             display: inline-block;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            animation: scroll-left 20s linear infinite;
+            padding-left: 100%;
         }
-
-        @keyframes marquee {
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+        
+        @keyframes scroll-left {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-100%); }
         }
 
         /* Floating shapes */
@@ -509,6 +507,39 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
+        /* Google Reviews Button */
+        .reviews-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-light);
+        }
+        
+        .reviews-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: linear-gradient(to right, #4285F4, #34A853, #FBBC05, #EA4335);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .reviews-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .reviews-button i {
+            font-size: 1.5rem;
+        }
+
         /* Modal */
         .modal { 
             display: none; 
@@ -583,7 +614,7 @@
             transform: translateY(-2px);
         }
 
-        /* Floating Sticker - Works on all devices */
+        /* Floating Sticker for Desktop */
         .floating-sticker {
             position: fixed;
             right: 0;
@@ -628,6 +659,16 @@
             text-align: center;
             font-weight: 700;
             font-size: 1.1rem;
+        }
+
+        /* Copyright */
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 1px solid rgba(0,0,0,0.1);
         }
 
         /* Mobile Responsive */
@@ -709,7 +750,7 @@
                 display: block;
             }
             
-            .marquee-text {
+            .gradient-text {
                 font-size: 0.9rem;
             }
         }
@@ -736,23 +777,9 @@
                 height: 130px;
             }
             
-            .marquee-content {
-                padding: 0 10px;
-            }
-            
-            .marquee-text {
+            .gradient-text {
                 font-size: 0.8rem;
             }
-        }
-        
-        /* Copyright */
-        .copyright {
-            text-align: center;
-            padding: 20px;
-            color: var(--gray-600);
-            font-size: 0.9rem;
-            margin-top: 40px;
-            border-top: 1px solid rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -780,19 +807,12 @@
         <div class="shape square"></div>
         <div class="shape triangle"></div>
         <div class="shape star">⭐</div>
-    </section>
-
-    <!-- Scrolling Marquee - Fixed Version -->
-    <div class="marquee-section">
-        <div class="marquee-container">
-            <div class="marquee-content">
-                <span class="marquee-text">We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</span>
-            </div>
-            <div class="marquee-content">
-                <span class="marquee-text">We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</span>
-            </div>
+        
+        <!-- Scrolling Marquee - Fixed and Reliable -->
+        <div class="gradient-banner">
+            <div class="gradient-text">We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</div>
         </div>
-    </div>
+    </section>
 
     <!-- Stats Section -->
     <section class="stats">
@@ -992,6 +1012,14 @@
             </div>
         </div>
         <div class="more-students">+ Many More Brilliant Minds! ✨</div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="reviews-section">
+        <a href="https://g.page/r/CdR5V6sF9lGDEAI/review" target="_blank" class="reviews-button">
+            <i class="fab fa-google"></i>
+            See What Others Say
+        </a>
     </section>
 
     <!-- CTA Section -->
