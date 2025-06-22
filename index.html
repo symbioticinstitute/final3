@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,7 @@
             line-height: 1.6;
             position: relative;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Space for mobile sticker */
+            padding-bottom: 30px;
         }
 
         /* Header */
@@ -77,16 +78,26 @@
             border-radius: 8px;
             transition: all 0.3s;
             white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             background: linear-gradient(135deg, var(--secondary), #a61e4d);
             box-shadow: 0 4px 15px rgba(214, 51, 108, 0.3);
         }
 
-        header .contact-link:hover {
+        header .about-link { 
+            text-decoration: none; 
+            color: var(--white); 
+            font-weight: 600; 
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            white-space: nowrap;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: 0 4px 15px rgba(27, 100, 17, 0.3);
+        }
+
+        header .contact-link:hover, 
+        header .about-link:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(214, 51, 108, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
         /* Hero Banner */
@@ -126,14 +137,20 @@
             border-radius: 30px;
         }
 
-        /* Scrolling Marquee - Fixed and Reliable */
-        .gradient-banner {
-            margin-top: 20px;
-            padding: 15px 0;
+        /* Reduced Banner Width */
+        .marquee-container {
+            max-width: 90%;
+            margin: 20px auto 0;
             border-radius: 6px;
             overflow: hidden;
-            position: relative;
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .gradient-banner {
+            margin-top: 0;
+            padding: 15px 0;
+            border-radius: 0;
+            box-shadow: none;
             background: linear-gradient(-45deg, #1b6411, #10b981, #2c3e50, #8e44ad);
             background-size: 400% 400%;
             animation: gradient-shift 8s ease infinite;
@@ -520,7 +537,7 @@
             align-items: center;
             gap: 10px;
             padding: 18px 40px;
-            background: linear-gradient(to right, #4285F4, #34A853, #FBBC05, #EA4335);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border: none;
             border-radius: 50px;
@@ -535,6 +552,7 @@
         .reviews-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #14550c, #0da271);
         }
         
         .reviews-button i {
@@ -675,13 +693,13 @@
             border-top: 1px dashed rgba(0,0,0,0.1);
         }
 
-        /* Floating Sticker for Desktop */
+        /* Floating Sticker for Desktop Only */
         .floating-sticker {
             position: fixed;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            background: linear-gradient(135deg, var(--secondary), #a61e4d);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             padding: 15px 5px;
             border-radius: 10px 0 0 10px;
@@ -705,23 +723,6 @@
             transform: translateY(-50%) translateX(-5px);
         }
 
-        /* Mobile Floating Sticker */
-        .mobile-floating-sticker {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, var(--secondary), #a61e4d);
-            color: white;
-            padding: 15px;
-            z-index: 1000;
-            box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
         /* Copyright */
         .copyright {
             text-align: center;
@@ -732,22 +733,20 @@
             border-top: 1px solid rgba(0,0,0,0.1);
         }
 
-        /* PHONE ICON FIX */
-#contact-modal .phone-number i.fas {
-    transform: scaleX(-1);
-    display: inline-block;
-
-    }
-
         /* Mobile Responsive */
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 10px;
                 padding: 15px;
             }
             
             .logo {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
                 font-size: 20px;
                 line-height: 1.2;
             }
@@ -756,9 +755,12 @@
                 font-size: 11px;
             }
             
-            header .contact-link {
+            header .contact-link,
+            header .about-link {
+                width: 48%;
+                text-align: center;
+                padding: 10px 5px;
                 font-size: 14px;
-                padding: 10px 20px;
             }
             
             .hero h1 { 
@@ -824,10 +826,6 @@
                 display: none;
             }
             
-            .mobile-floating-sticker {
-                display: block;
-            }
-            
             .gradient-text {
                 font-size: 0.9rem;
             }
@@ -868,7 +866,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header with both Contact and About links -->
     <header>
         <div class="logo">
             <i class="fas fa-trophy"></i>
@@ -878,8 +876,11 @@
             </div>
         </div>
         <a href="#" class="contact-link" onclick="openContactModal()">
-    Contact Us
-</a>
+            Contact Us
+        </a>
+        <a href="https://symbioticlearning.com/about" class="about-link">
+            About Us
+        </a>
     </header>
 
     <!-- Hero Banner -->
@@ -892,9 +893,11 @@
         <div class="shape triangle"></div>
         <div class="shape star">⭐</div>
         
-        <!-- Scrolling Marquee - Fixed and Reliable -->
-        <div class="gradient-banner">
-            <div class="gradient-text">We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</div>
+        <!-- Scrolling Marquee with reduced width -->
+        <div class="marquee-container">
+            <div class="gradient-banner">
+                <div class="gradient-text">We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</div>
+            </div>
         </div>
     </section>
 
@@ -964,7 +967,6 @@
                 <div class="admission">Admission: NIT Delhi (AI & Data Science)</div>
             </div>
             <div class="featured-photo">
-                <!-- ACTUAL IMAGE REPLACEMENT -->
                 <img src="https://raw.githubusercontent.com/symbioticinstitute/rrsu2/main/student1.jpg" alt="Kasib Rizvi">
             </div>
         </div>
@@ -1099,7 +1101,7 @@
         <div class="more-students">+ Many More Brilliant Minds! ✨</div>
     </section>
 
-    <!-- Google Reviews Section -->
+    <!-- Google Reviews Section with updated color -->
     <section class="reviews-section">
         <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zKs0sjRLSsozYLRSNagwtkwzMjC1SDE2TE1MNE0ytjKoSEpKTLMwM05NSjJMMks0tfASLq7MTcrML8lMVsjMKy7JLCktSQUANZIXkg&q=symbiotic+institute&rlz=1C1CHBF_enIN1132IN1132&oq=sym&gs_lcrp=EgZjaHJvbWUqFQgFEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MgYIARBFGDwyBggCEEUYPDIGCAMQRRg5MhEIBBBFGCcYOxjjAhiABBiKBTIVCAUQLhgnGK8BGMcBGIAEGIoFGI4FMgYIBhBFGDsyBggHEEUYPNIBCDQyNDJqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#mpd=~13481104329782748208/customers/reviews" target="_blank" class="reviews-button">
             <i class="fab fa-google"></i>
@@ -1111,7 +1113,6 @@
     <section class="cta">
         <h2>Join Our Success Story</h2>
         <p>Ready to achieve academic excellence? Let us guide your child to outstanding results like these achievers!</p>
-        <!-- ACTUAL CTA LINK -->
         <a href="https://symbioticlearning.com/contact" class="cta-button">🚀 Start Your Journey Today</a>
         <div class="shape circle" style="top: 10%; left: 5%; width: 80px; height: 80px;"></div>
         <div class="shape triangle" style="bottom: 10%; right: 5%;"></div>
@@ -1122,33 +1123,25 @@
         &copy; 2025 Educational Excellence. All rights reserved.
     </div>
 
-    <!-- Floating Sticker for Desktop -->
-    <!-- ACTUAL ABOUT US LINK -->
+    <!-- Floating Sticker for Desktop Only -->
     <div class="floating-sticker" onclick="window.location.href='https://symbioticlearning.com/about'">
         About Us
     </div>
 
-    <!-- Floating Sticker for Mobile -->
-    <!-- ACTUAL ABOUT US LINK -->
-    <div class="mobile-floating-sticker" onclick="window.location.href='https://symbioticlearning.com/about'">
-        About Us
-    </div>
-
- <!-- Contact Modal -->
-<div class="modal" id="contact-modal">
-    <div class="contact-modal-content">
-        <div class="modal-close" onclick="closeContactModal()">✕</div>
-        <h3><i class="fas fa-headset"></i> Contact Us</h3>
-        <p>If you have any questions to ask, please contact us. We will be happy to help you!</p>
-        <div class="phone-number">
-            <!-- Phone number without icon -->
-            09149822922
-        </div>
-        <div class="thank-you">
-            <i class="fas fa-heart"></i> Thank You!
+    <!-- Contact Modal -->
+    <div class="modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <div class="modal-close" onclick="closeContactModal()">✕</div>
+            <h3><i class="fas fa-headset"></i> Contact Us</h3>
+            <p>If you have any questions to ask, please contact us. We will be happy to help you!</p>
+            <div class="phone-number">
+                09149822922
+            </div>
+            <div class="thank-you">
+                <i class="fas fa-heart"></i> Thank You!
+            </div>
         </div>
     </div>
-</div>
 
     <!-- Timed Popup Modal -->
     <div class="modal" id="promo-modal">
@@ -1156,7 +1149,6 @@
             <div class="modal-close" onclick="closePromoModal()">✕</div>
             <h3>🎉 Witness Excellence in Action!</h3>
             <p>These remarkable results speak for themselves. Your child could be our next success story!</p>
-            <!-- ACTUAL CONTACT LINK -->
             <button onclick="location.href='https://symbioticlearning.com/contact'">💬 Contact Us Now</button>
         </div>
     </div>
