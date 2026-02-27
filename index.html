@@ -3,1197 +3,669 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educational Excellence - Our Achievements</title>
+    <title>Symbiotic Learning · achievements</title>
+    <!-- Font Awesome 6 Free -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --primary: #1b6411;
-            --accent: #10b981;
-            --secondary: #d6336c;
-            --bg-light: #f8fafc;
-            --dark: #1f2937;
-            --white: #ffffff;
-            --gray-600: #4b5563;
-            --light-green: #dcfce7;
-            --light-pink: #fce7f3;
-            --yellow: #fef3c7;
-            --orange: #fed7aa;
-            --purple: #e9d5ff;
-            --gold: #f59e0b;
+            /* Deep Green (Brand / Buttons) */
+            --deep-green: #1B5E20;
+            /* Medium Green */
+            --medium-green: #2E7D32;
+            /* Light Green Gradient Tone */
+            --light-green: #4CAF50;
+            
+            /* Blue Tones */
+            --primary-blue: #2F6FE4;
+            --gradient-blue: #4A86F7;
+            --dark-blue: #1E4DB7;
+            
+            /* Pink / Magenta Tones */
+            --primary-magenta: #C2185B;
+            --bright-pink: #E91E63;
+            --soft-pink: #F8BBD0;
+            
+            /* Yellow / Gold Tones */
+            --golden-yellow: #F4B400;
+            --yellow-gradient: #F6C343;
+            --warm-yellow: #FFD54F;
+            
+            /* Neutral Colors */
+            --white: #FFFFFF;
+            --light-grey: #F5F5F5;
+            --medium-grey: #555555;
+            --dark-grey: #212121;
+            
+            --shadow-card: 0 8px 20px rgba(0,0,0,0.08);
+            --border-radius: 24px;
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--light-grey);
+            color: var(--dark-grey);
+            line-height: 1.5;
         }
 
-        body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-            background: var(--bg-light); 
-            color: var(--dark); 
-            line-height: 1.6;
-            position: relative;
-            overflow-x: hidden;
-            padding-bottom: 30px;
-        }
-
-        /* Header */
-        header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 20px; 
-            background: rgba(255,255,255,0.95); 
-            backdrop-filter: blur(20px);
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
+        /* admissions banner – icons removed, only text */
+        .top-banner {
+            background: var(--primary-magenta);
+            color: white;
             text-align: center;
+            padding: 14px 24px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            border-bottom: 4px solid var(--golden-yellow);
+        }
+        .top-banner span {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 32px;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        /* header – exact text restored */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background: var(--white);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .logo-group {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-
-        .logo-subtitle {
-            font-size: 12px;
-            color: var(--accent);
+        .logo-icon {
+            background: var(--deep-green);
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--golden-yellow);
+            font-size: 1.8rem;
+        }
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--deep-green);
+            line-height: 1.2;
+        }
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--medium-grey);
             font-weight: 500;
-            margin-top: 2px;
         }
-
-        header .contact-link { 
-            text-decoration: none; 
-            color: var(--white); 
-            font-weight: 600; 
-            padding: 12px 25px;
-            border-radius: 8px;
-            transition: all 0.3s;
+        .header-btns {
+            display: flex;
+            gap: 12px;
+        }
+        .btn-header {
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.2s;
             white-space: nowrap;
-            background: linear-gradient(135deg, var(--secondary), #a61e4d);
-            box-shadow: 0 4px 15px rgba(214, 51, 108, 0.3);
+        }
+        .btn-contact {
+            background: var(--deep-green);
+            color: white;
+            border: 1px solid var(--deep-green);
+        }
+        .btn-about {
+            background: var(--dark-blue);
+            color: white;
+            border: 1px solid var(--dark-blue);
+        }
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
-        header .about-link { 
-            text-decoration: none; 
-            color: var(--white); 
-            font-weight: 600; 
-            padding: 12px 25px;
-            border-radius: 8px;
-            transition: all 0.3s;
-            white-space: nowrap;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            box-shadow: 0 4px 15px rgba(27, 100, 17, 0.3);
-        }
-
-        header .contact-link:hover, 
-        header .about-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Hero Banner */
-        .hero { 
-            position: relative; 
-            padding: 80px 20px; 
-            background: linear-gradient(135deg, var(--primary), var(--accent)); 
-            display: flex; 
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center; 
-            color: var(--white); 
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, var(--white), var(--soft-pink), #E3F2FD);
+            padding: 70px 24px 80px;
             text-align: center;
-            overflow: hidden;
         }
-
-        .hero h1 { 
-            font-size: 3rem; 
-            margin-bottom: 20px;
+        .hero h1 {
+            font-size: 3rem;
             font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            color: var(--deep-green);
+            margin-bottom: 16px;
         }
-
         .hero p {
+            max-width: 700px;
+            margin: 0 auto 24px;
             font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-bottom: 30px;
+            color: var(--medium-grey);
         }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            font-weight: 500;
-            background: rgba(255,255,255,0.15);
-            padding: 8px 20px;
-            border-radius: 30px;
+        .hero-sub {
+            background: var(--golden-yellow);
+            color: var(--dark-grey);
+            padding: 6px 30px;
+            border-radius: 60px;
+            display: inline-block;
+            font-weight: 600;
+            border: 1px solid var(--warm-yellow);
         }
-
-        /* Reduced Banner Width */
-        .marquee-container {
-            max-width: 90%;
-            margin: 20px auto 0;
-            border-radius: 6px;
+        .marquee-modern {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: var(--primary-blue);
+            border-radius: 60px;
+            padding: 14px 0;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
-        
-        .gradient-banner {
-            margin-top: 0;
-            padding: 15px 0;
-            border-radius: 0;
-            box-shadow: none;
-            background: linear-gradient(-45deg, #1b6411, #10b981, #2c3e50, #8e44ad);
-            background-size: 400% 400%;
-            animation: gradient-shift 8s ease infinite;
-        }
-        
-        .gradient-text {
+        .marquee-text {
             display: inline-block;
             color: white;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             white-space: nowrap;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            animation: scroll-left 20s linear infinite;
+            animation: scrollMarquee 22s linear infinite;
             padding-left: 100%;
         }
-        
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50% }
-            50% { background-position: 100% 50% }
-            100% { background-position: 0% 50% }
-        }
-        
-        @keyframes scroll-left {
+        @keyframes scrollMarquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
 
-        /* Floating shapes */
-        .shape { 
-            position: absolute; 
-            opacity: 0.15; 
-            animation: float 6s ease-in-out infinite; 
-            z-index: 0;
+        /* stats */
+        .stats-section {
+            max-width: 1100px;
+            margin: -30px auto 20px;
+            padding: 0 24px;
         }
-
-        .shape.circle { 
-            width: 120px; 
-            height: 120px; 
-            border-radius: 50%; 
-            background: var(--accent); 
-            top: 10%; 
-            left: 10%; 
-        }
-
-        .shape.square { 
-            width: 100px; 
-            height: 100px; 
-            background: var(--white); 
-            bottom: 15%; 
-            right: 15%; 
-            border-radius: 20px;
-        }
-
-        .shape.triangle {
-            width: 0;
-            height: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 80px solid var(--white);
-            top: 20%;
-            right: 10%;
-            animation-delay: -2s;
-        }
-
-        .shape.star {
-            font-size: 40px;
-            color: var(--white);
-            top: 40%;
-            left: 25%;
-            animation-delay: -1s;
-        }
-
-        @keyframes float { 
-            0%, 100% { transform: translateY(0) rotate(0deg); } 
-            50% { transform: translateY(-20px) rotate(5deg); } 
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--white);
-            padding: 60px 20px;
-            margin-top: -40px;
-            position: relative;
-            z-index: 10;
-        }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .stat-card {
+            gap: 24px;
             background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 48px;
+            padding: 36px 28px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid #e0e0e0;
+        }
+        .stat-item {
             text-align: center;
-            transition: transform 0.3s;
-            border-left: 4px solid var(--accent);
-            position: relative;
-            z-index: 2;
         }
-
-        .stat-card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
         .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
+            font-size: 2.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
         }
-
-        .stat-value { 
-            font-size: 2rem; 
-            font-weight: 700; 
-            margin-bottom: 5px; 
-            color: var(--primary); 
-        }
-
-        .stat-label { 
-            font-size: 0.9rem; 
-            color: var(--gray-600); 
-        }
-
-        /* Main Content */
-        .section { 
-            padding: 60px 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            position: relative;
-        }
-
-        .year-title { 
-            font-size: 2rem; 
-            margin-bottom: 40px; 
-            color: var(--primary); 
-            text-align: center; 
-            padding: 25px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .cards { 
-            display: grid; 
-            gap: 30px; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-        }
-
-        .card { 
-            background: var(--white); 
-            padding: 30px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-            text-align: center; 
-            transition: all 0.3s;
-            border-left: 5px solid var(--accent);
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .photo { 
-            width: 120px; 
-            height: 120px; 
-            border-radius: 50%; 
-            overflow: hidden; 
-            margin: 0 auto 20px; 
-            border: 4px solid var(--accent); 
-            background: linear-gradient(135deg, var(--light-green), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .photo img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-
-        .name { 
-            font-weight: 700; 
-            margin-bottom: 15px; 
-            font-size: 1.3rem;
-            color: var(--dark);
-        }
-
-        .school { 
-            font-size: 1rem; 
-            margin-bottom: 15px; 
-            color: var(--white); 
-            background: linear-gradient(135deg, var(--secondary), #a61e4d);
-            padding: 10px 18px;
-            border-radius: 20px;
-            display: inline-block;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(214, 51, 108, 0.3);
-        }
-
-        .percent { 
-            font-size: 1.8rem; 
-            font-weight: 700; 
-            color: var(--white); 
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            padding: 15px 25px;
-            border-radius: 50px;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(27, 100, 17, 0.3);
-        }
-
-        .admission { 
-            font-size: 1rem; 
-            font-weight: 600; 
-            color: var(--dark); 
-            margin-bottom: 10px;
-            background: var(--light-pink);
-            padding: 10px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            box-shadow: 0 3px 10px rgba(252, 231, 243, 0.5);
-        }
-
-        .achievement-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: var(--gold);
-            background: rgba(255,255,255,0.9);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .more-students {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background: linear-gradient(135deg, var(--purple), var(--orange));
-            border-radius: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--dark);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* JEE Special Layout */
-        .jee-highlight {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: var(--white);
-            border: none;
-        }
-
-        .jee-highlight .school,
-        .jee-highlight .admission {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--white);
-        }
-
-        .jee-highlight .percent {
-            background: var(--white);
-            color: var(--primary);
-        }
-
-        /* Two column layout for featured students */
-        .two-col { 
-            display: grid; 
-            grid-template-columns: 2fr 1fr; 
-            gap: 40px; 
-            align-items: center;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
-
-        .featured-content h3 {
+        .stat-number {
             font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--deep-green);
+            line-height: 1.2;
+        }
+        .stat-desc {
+            color: var(--medium-grey);
+            font-weight: 500;
+            font-size: 0.9rem;
         }
 
-        .featured-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 5px solid var(--accent);
-            background: var(--light-green);
+        /* section titles */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--deep-green);
+            margin: 50px 0 30px;
+            padding-left: 16px;
+            border-left: 8px solid var(--primary-magenta);
+        }
+
+        /* cards */
+        .cards-grid {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-bottom: 20px;
+        }
+        .record-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 24px 18px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid #e0e0e0;
+            transition: 0.2s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid var(--primary-magenta);
+        }
+        .record-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+        .card-badge {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 1.6rem;
+            color: var(--golden-yellow);
+        }
+        .student-initials {
+            width: 90px;
+            height: 90px;
+            background: var(--deep-green);
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 18px;
+            border: 3px solid var(--primary-blue);
+        }
+        .student-name {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--dark-grey);
+        }
+        /* SCHOOL NAME HIGHLIGHT – dark magenta background, white text */
+        .school-name {
+            background: var(--primary-magenta);
+            color: white;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 6px 0 8px;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .percentage {
+            background: var(--primary-blue);
+            color: white;
+            font-weight: 800;
+            font-size: 1.8rem;
+            padding: 6px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            align-self: flex-start;
+            margin: 12px 0 0;
+            box-shadow: 0 4px 8px rgba(47,111,228,0.3);
+        }
+        .admission-tag {
+            background: var(--soft-pink);
+            color: var(--dark-grey);
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            margin-top: 12px;
+            border: 1px dashed var(--primary-magenta);
+        }
+
+        /* featured two‑col */
+        .featured-record {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            background: var(--white);
+            border-radius: 48px;
+            padding: 40px 48px;
+            align-items: center;
+            gap: 30px;
+            border: 1px solid #e0e0e0;
+            box-shadow: var(--shadow-card);
+            margin: 30px 0;
+            border-left: 8px solid var(--primary-magenta);
+        }
+        .featured-content h3 {
+            font-size: 2.5rem;
+            color: var(--deep-green);
+            margin-bottom: 6px;
+        }
+        .featured-content .school {
+            background: var(--deep-green);
+            color: white;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            margin: 12px 0;
+            font-weight: 600;
+        }
+        .featured-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 5px solid var(--primary-blue);
+            background: var(--soft-pink);
             margin: 0 auto;
         }
-
         .featured-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: var(--white);
-            padding: 60px 20px;
+        /* more row */
+        .more-students {
             text-align: center;
-            margin-top: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-button {
-            padding: 18px 40px;
-            background: var(--white);
-            color: var(--primary);
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            margin: 30px 0 40px;
+            background: var(--soft-pink);
+            padding: 18px;
+            border-radius: 60px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            z-index: 2;
+            color: var(--dark-grey);
+            border: 2px dotted var(--primary-magenta);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Google Reviews Button */
-        .reviews-section {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--bg-light);
-        }
-        
-        .reviews-button {
+        /* google reviews button */
+        .reviews-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 18px 40px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            gap: 12px;
+            background: var(--deep-green);
             color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .reviews-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #14550c, #0da271);
-        }
-        
-        .reviews-button i {
-            font-size: 1.5rem;
-        }
-
-        /* Modal */
-        .modal { 
-            display: none; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100vw; 
-            height: 100vh; 
-            background: rgba(0, 0, 0, 0.6); 
-            justify-content: center; 
-            align-items: center; 
-            z-index: 200; 
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content { 
-            background: var(--white); 
-            padding: 40px; 
-            border-radius: 20px; 
-            text-align: center; 
-            max-width: 90%; 
-            width: 400px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation: popIn 0.4s ease-out;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-600);
-            transition: color 0.3s;
-        }
-
-        .modal-close:hover {
-            color: var(--primary);
-        }
-
-        .modal-content h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .modal-content p {
-            margin-bottom: 25px;
-            color: var(--gray-600);
-        }
-
-        .modal-content button { 
-            margin-top: 20px; 
-            padding: 15px 30px; 
-            background: linear-gradient(135deg, var(--primary), var(--accent)); 
-            color: var(--white); 
-            border: none; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.3s;
-        }
-
-        .modal-content button:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Contact Modal */
-        .contact-modal-content {
-            background: linear-gradient(135deg, #f5f7fa, #e4edf9);
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 90%;
-            width: 400px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-            position: relative;
-            animation: popIn 0.4s ease-out;
-        }
-
-        .contact-modal-content h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .contact-modal-content p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: var(--dark);
-        }
-
-        .phone-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            font-size: 1.8rem;
+            padding: 18px 48px;
+            border-radius: 60px;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--secondary);
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            text-decoration: none;
+            margin: 30px auto 50px;
+            border: 2px solid var(--golden-yellow);
+        }
+        .reviews-btn:hover {
+            background: var(--medium-green);
+            border-color: var(--warm-yellow);
         }
 
-        .phone-number:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        /* cta */
+        .cta-block {
+            background: linear-gradient(135deg, var(--deep-green), var(--medium-green));
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+            border-radius: 80px 80px 0 0;
+        }
+        .cta-block h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+        .cta-btn {
+            background: linear-gradient(145deg, var(--golden-yellow), var(--yellow-gradient));
+            color: var(--dark-grey);
+            border: none;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 24px;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
-        .thank-you {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px dashed rgba(0,0,0,0.1);
+        /* modals */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+        }
+        .modal-content {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 48px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+            border: 2px solid var(--primary-magenta);
+        }
+        .modal-close {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--medium-grey);
+        }
+        .phone-number {
+            font-size: 2rem;
+            background: var(--soft-pink);
+            padding: 16px;
+            border-radius: 40px;
+            margin: 20px 0;
+            font-weight: 700;
+            color: var(--deep-green);
         }
 
-        /* Floating Sticker for Desktop Only */
+        /* floating sticker */
         .floating-sticker {
             position: fixed;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: var(--primary-magenta);
             color: white;
-            padding: 15px 5px;
-            border-radius: 10px 0 0 10px;
-            z-index: 1000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: all 0.3s;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 16px 6px;
+            border-radius: 30px 0 0 30px;
             writing-mode: vertical-rl;
-            text-orientation: mixed;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.1rem;
-            letter-spacing: 1px;
+            cursor: pointer;
+            border: 2px solid var(--golden-yellow);
+            border-right: none;
+            z-index: 150;
         }
 
-        .floating-sticker:hover {
-            padding-right: 10px;
-            transform: translateY(-50%) translateX(-5px);
+        /* mobile */
+        @media (max-width: 700px) {
+            .top-banner { font-size: 1rem; padding: 8px; }
+            header { padding: 12px 16px; }
+            .logo-icon { width: 40px; height: 40px; font-size: 1.5rem; }
+            .logo-text { font-size: 1.1rem; }
+            .header-btns { width: 100%; justify-content: center; }
+            .btn-header { padding: 10px 16px; font-size: 0.85rem; flex:1; text-align: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 1.7rem; }
+            .featured-record { grid-template-columns: 1fr; text-align: center; padding: 30px 20px; }
+            .featured-photo { width: 160px; height: 160px; }
+            .student-initials { width: 70px; height: 70px; font-size: 2rem; }
+            .percentage { font-size: 1.5rem; }
+            .stats-grid { padding: 24px 12px; }
+            .floating-sticker { display: none; }
         }
 
-        /* Copyright */
         .copyright {
             text-align: center;
-            padding: 20px;
-            color: var(--gray-600);
-            font-size: 0.9rem;
+            padding: 24px;
+            color: var(--medium-grey);
+            border-top: 1px solid #e0e0e0;
             margin-top: 40px;
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                gap: 10px;
-                padding: 15px;
-            }
-            
-            .logo {
-                width: 100%;
-                justify-content: center;
-                margin-bottom: 10px;
-                font-size: 20px;
-                line-height: 1.2;
-            }
-            
-            .logo-subtitle {
-                font-size: 11px;
-            }
-            
-            header .contact-link,
-            header .about-link {
-                width: 48%;
-                text-align: center;
-                padding: 10px 5px;
-                font-size: 14px;
-            }
-            
-            .hero h1 { 
-                font-size: 1.8rem; 
-                line-height: 1.2;
-            }
-            
-            .hero p { 
-                font-size: 1rem; 
-            }
-            
-            .year-title {
-                font-size: 1.4rem;
-                line-height: 1.3;
-                padding: 20px 15px;
-            }
-            
-            .two-col { 
-                grid-template-columns: 1fr; 
-                text-align: center;
-                padding: 25px;
-            }
-            
-            .cards { 
-                grid-template-columns: 1fr; 
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .featured-photo {
-                width: 150px;
-                height: 150px;
-                margin-top: 20px;
-            }
-            
-            .cta h2 { 
-                font-size: 1.8rem; 
-            }
-            
-            .stat-label {
-                font-size: 0.8rem;
-                line-height: 1.2;
-            }
-            
-            .modal-content {
-                padding: 30px 20px;
-                margin: 20px;
-            }
-            
-            .contact-modal-content {
-                padding: 30px 20px;
-                width: 90%;
-            }
-            
-            .phone-number {
-                font-size: 1.4rem;
-                padding: 15px;
-            }
-            
-            .floating-sticker {
-                display: none;
-            }
-            
-            .gradient-text {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            .section {
-                padding: 40px 15px;
-            }
-            .card {
-                padding: 20px;
-            }
-            .hero {
-                padding: 60px 15px;
-            }
-            .year-title {
-                font-size: 1.2rem;
-                padding: 18px 12px;
-            }
-            .featured-photo {
-                width: 130px;
-                height: 130px;
-            }
-            
-            .gradient-text {
-                font-size: 0.8rem;
-            }
-            
-            .phone-number {
-                font-size: 1.2rem;
-                flex-direction: column;
-                gap: 10px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Header with both Contact and About links -->
-    <header>
-        <div class="logo">
-            <i class="fas fa-trophy"></i>
-            <div>
-                OUR ACHIEVEMENTS
-                <div class="logo-subtitle">(Overseas Education Division)</div>
-            </div>
-        </div>
-        <a href="#" class="contact-link" onclick="openContactModal()">
-            CONTACT US
-        </a>
-        <a href="https://symbioticlearning.com/about" class="about-link">
-            LEARN MORE
-        </a>
-    </header>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <h1>Celebrating Academic Excellence</h1>
-        <p>Discover the outstanding achievements of our students in CBSE Board Examinations and competitive entrance tests. Every success story represents dedication, hard work, and quality education.</p>
-        <div class="hero-subtitle">✨ Inspiring Tomorrow's Leaders Today </div>
-        <div class="shape circle"></div>
-        <div class="shape square"></div>
-        <div class="shape triangle"></div>
-        <div class="shape star">⭐</div>
-        
-        <!-- Scrolling Marquee with reduced width -->
-        <div class="marquee-container">
-            <div class="gradient-banner">
-                <div class="gradient-text">We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
-                <div class="stat-value">400+ Students Guided</div>
-                <div class="stat-label">From Dubai to Doha, Riyadh to Muscat, we have helped Indian students excel in their academics.
+<!-- ADMISSIONS BANNER – plain text -->
+<div class="top-banner">
+    <span>Admissions open for 2026-27</span>
 </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
-                <div class="stat-value">98%</div>
-                <div class="stat-label">Success Rate</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-star"></i></div>
-                <div class="stat-value">15+</div>
-                <div class="stat-label">Above 90% Marks</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-medal"></i></div>
-                <div class="stat-value">10+</div>
-                <div class="stat-label">School Toppers</div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CBSE Class 10 Results 2025 -->
-    <section class="section" id="cbse10-2025">
-        <h2 class="year-title"><i class="fas fa-award"></i> CBSE Class 10 Results 2025 - Latest Achievement</h2>
-        <div class="cards">
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-trophy"></i></div>
-                <div class="photo">M</div>
-                <div class="name">Mehreen Shaikh</div>
-                <div class="school">Indian School Seeb, Oman</div>
-                <div class="percent">96%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-star"></i></div>
-                <div class="photo">S</div>
-                <div class="name">Safiya Areej</div>
-                <div class="school">Indian School Nizwa, Oman</div>
-                <div class="percent">95%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-medal"></i></div>
-                <div class="photo">H</div>
-                <div class="name">Haziq Rizvi</div>
-                <div class="school">Indian School Al Wadi Al Kabir, Muscat, Oman</div>
-                <div class="percent">94%</div>
-            </div>
-        </div>
-        <div class="more-students">+ Many More Outstanding Results! 🌟</div>
-    </section>
-
-    <!-- JEE Main 2024 Featured -->
-    <section class="section" id="jee-2024">
-        <h2 class="year-title"><i class="fas fa-bullseye"></i> JEE (Main) Result - 2024 (Overseas Division)</h2>
-        <div class="two-col">
-            <div class="featured-content">
-                <h3>Kasib Rizvi</h3>
-                <div class="school">Indian School Al Wadi Al Kabir, Muscat, Oman</div>
-                <div class="admission">Admission: NIT Delhi (AI & Data Science)</div>
-            </div>
-            <div class="featured-photo">
-                <img src="https://raw.githubusercontent.com/symbioticinstitute/rrsu2/main/student1.jpg" alt="Kasib Rizvi">
-            </div>
-        </div>
-    </section>
-
-    <!-- CBSE Class 10 Results 2024 -->
-    <section class="section" id="cbse10-2024">
-        <h2 class="year-title"><i class="fas fa-book-open"></i> CBSE Class 10 Results - 2024</h2>
-        <div class="cards">
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-trophy"></i></div>
-                <div class="photo">I</div>
-                <div class="name">Insha Kamran</div>
-                <div class="school">Indian School Sur, Oman</div>
-                <div class="percent">97%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-star"></i></div>
-                <div class="photo">B</div>
-                <div class="name">Bushra Shaikh</div>
-                <div class="school">LPS Sharjah, UAE</div>
-                <div class="percent">96%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-medal"></i></div>
-                <div class="photo">A</div>
-                <div class="name">Aariz Ahmad</div>
-                <div class="school">The Central School Dubai, UAE</div>
-                <div class="percent">95%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-bullseye"></i></div>
-                <div class="photo">N</div>
-                <div class="name">Nabil Ahmad</div>
-                <div class="school">Indian School Seeb, Oman</div>
-                <div class="percent">95%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-star"></i></div>
-                <div class="photo">A</div>
-                <div class="name">Abdullah Minhaj</div>
-                <div class="school">Indian School Sohar, Oman</div>
-                <div class="percent">95%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-medal"></i></div>
-                <div class="photo">S</div>
-                <div class="name">Syed Arsalan</div>
-                <div class="school">The Central School Dubai, UAE</div>
-                <div class="percent">93%</div>
-            </div>
-        </div>
-        <div class="more-students">+ Many More Exceptional Achievers! 🎉</div>
-    </section>
-
-    <!-- CBSE Class 10 Results 2023 -->
-    <section class="section" id="cbse10-2023">
-        <h2 class="year-title"><i class="fas fa-chart-line"></i> CBSE Class 10 Results - 2023 (Online Coaching)</h2>
-        <div class="stats-grid" style="margin-bottom: 40px;">
-            <div class="stat-card">
-                <div class="stat-value">50%</div>
-                <div class="stat-label">Scored > 90%</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">30%</div>
-                <div class="stat-label">Scored > 80%</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">20%</div>
-                <div class="stat-label">Scored < 80%</div>
-            </div>
-        </div>
-        <div class="cards">
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-trophy"></i></div>
-                <div class="photo">S</div>
-                <div class="name">Sana Parween</div>
-                <div class="school">Indian School Mabela, Muscat, Oman</div>
-                <div class="percent">95.8%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-star"></i></div>
-                <div class="photo">A</div>
-                <div class="name">Ayan Iqbal</div>
-                <div class="school">AK English School Muralesh, India</div>
-                <div class="percent">95%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-medal"></i></div>
-                <div class="photo">A</div>
-                <div class="name">Athif Kalim</div>
-                <div class="school">Indian School Muscat, Oman</div>
-                <div class="percent">93.0%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-bullseye"></i></div>
-                <div class="photo">S</div>
-                <div class="name">Shayista Fatima</div>
-                <div class="school">Indian School Mabela, Muscat, Oman</div>
-                <div class="percent">92%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-star"></i></div>
-                <div class="photo">Z</div>
-                <div class="name">Zainab Hafeez</div>
-                <div class="school">Indian School Seeb, Oman</div>
-                <div class="percent">91.2%</div>
-            </div>
-            <div class="card">
-                <div class="achievement-badge"><i class="fas fa-medal"></i></div>
-                <div class="photo">S</div>
-                <div class="name">Sadiya Imran</div>
-                <div class="school">Indian School Al Wadi Al Kabir, Oman</div>
-                <div class="percent">91%</div>
-            </div>
-        </div>
-        <div class="more-students">+ Many More Success Stories! 🚀</div>
-    </section>
-
-    <!-- Academic Year 2022 Highlight -->
-    <section class="section" id="highlight-2022">
-        <h2 class="year-title"><i class="fas fa-star"></i> Academic Year 2022 Highlight</h2>
-        <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
-            <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 15px;">Ramisa Parween</h3>
-            <div class="school">Indian School Al Maabela, Muscat</div>
-            <div class="percent" style="margin: 20px auto;">Overall: 94.2%</div>
-            <div class="admission">PCB: 96%</div>
-            <div style="margin-top: 25px; padding: 15px; background: var(--light-pink); border-radius: 15px;">
-                <strong>Achievements:</strong> School Topper; Among top students in Indian schools in Muscat
-            </div>
-        </div>
-        <div class="more-students">+ Many More Brilliant Minds! ✨</div>
-    </section>
-
-    <!-- Google Reviews Section with updated color -->
-    <section class="reviews-section">
-        <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zKs0sjRLSsozYLRSNagwtkwzMjC1SDE2TE1MNE0ytjKoSEpKTLMwM05NSjJMMks0tfASLq7MTcrML8lMVsjMKy7JLCktSQUANZIXkg&q=symbiotic+institute&rlz=1C1CHBF_enIN1132IN1132&oq=sym&gs_lcrp=EgZjaHJvbWUqFQgFEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MgYIARBFGDwyBggCEEUYPDIGCAMQRRg5MhEIBBBFGCcYOxjjAhiABBiKBTIVCAUQLhgnGK8BGMcBGIAEGIoFGI4FMgYIBhBFGDsyBggHEEUYPNIBCDQyNDJqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#mpd=~13481104329782748208/customers/reviews" target="_blank" class="reviews-button">
-            <i class="fab fa-google"></i>
-            See What Others Say
-        </a>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <h2>Join Our Success Story</h2>
-        <p>Ready to achieve academic excellence? Let us guide your child to outstanding results like these achievers!</p>
-        <a href="https://symbioticlearning.com/contact" class="cta-button">🚀 Start Your Journey Today</a>
-        <div class="shape circle" style="top: 10%; left: 5%; width: 80px; height: 80px;"></div>
-        <div class="shape triangle" style="bottom: 10%; right: 5%;"></div>
-    </section>
-
-    <!-- Copyright -->
-    <div class="copyright">
-        &copy; 2025 Symbiotic Learning. All rights reserved.
-    </div>
-
-   
-
-    <!-- Contact Modal -->
-    <div class="modal" id="contact-modal">
-        <div class="contact-modal-content">
-            <div class="modal-close" onclick="closeContactModal()">✕</div>
-            <h3><i class="fas fa-headset"></i> Contact Us</h3>
-            <p>If you have any questions to ask, please contact us. We will be happy to help you!</p>
-            <div class="phone-number">
-                09149822922
-            </div>
-            <div class="thank-you">
-                <i class="fas fa-heart"></i> Thank You!
-            </div>
+<!-- HEADER – exact text -->
+<header>
+    <div class="logo-group">
+        <div class="logo-icon"><i class="fa-solid fa-trophy"></i></div>
+        <div class="logo-text">
+            OUR ACHIEVEMENTS<br><span class="logo-sub">(Overseas Education Division)</span>
         </div>
     </div>
+    <div class="header-btns">
+        <a href="#" class="btn-header btn-contact" onclick="openContactModal()">CONTACT US</a>
+        <a href="https://symbioticlearning.com/about" class="btn-header btn-about">LEARN MORE</a>
+    </div>
+</header>
 
-    <!-- Timed Popup Modal -->
-    <div class="modal" id="promo-modal">
-        <div class="modal-content">
-            <div class="modal-close" onclick="closePromoModal()">✕</div>
-            <h3>🎉 Witness Excellence in Action!</h3>
-            <p>These remarkable results speak for themselves. Your child could be our next success story!</p>
-            <button onclick="location.href='https://symbioticlearning.com/contact'">💬 Contact Us Now</button>
+<!-- HERO -->
+<section class="hero">
+    <h1>Celebrating Academic Excellence</h1>
+    <p>Discover the outstanding achievements of our students in CBSE Board Examinations and competitive entrance tests. Every success story represents dedication, hard work, and quality education.</p>
+    <div class="hero-sub">✨ Inspiring Tomorrow's Leaders Today</div>
+    <div class="marquee-modern">
+        <div class="marquee-text">🌍 We're an online learning platform nurturing Indian students across Gulf countries with personalised guidance at the most affordable cost. Check out our results over the past few years!</div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-item"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><div class="stat-number">400+ Students Guided</div><div class="stat-desc">From Dubai to Doha, Riyadh to Muscat, we have helped Indian students excel.</div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><div class="stat-number">98%</div><div class="stat-desc">Success Rate</div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fa-solid fa-star"></i></div><div class="stat-number">15+</div><div class="stat-desc">Above 90% Marks</div></div>
+        <div class="stat-item"><div class="stat-icon"><i class="fa-solid fa-medal"></i></div><div class="stat-number">10+</div><div class="stat-desc">School Toppers</div></div>
+    </div>
+</section>
+
+<!-- CBSE 10 2025 -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <h2 class="section-title"><i class="fa-solid fa-award"></i> CBSE Class 10 Results 2025 - Latest Achievement</h2>
+    <div class="cards-grid">
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-trophy"></i></div><div class="student-initials">M</div><div class="student-name">Mehreen Shaikh</div><div class="school-name">Indian School Seeb, Oman</div><div class="percentage">96%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-star"></i></div><div class="student-initials">S</div><div class="student-name">Safiya Areej</div><div class="school-name">Indian School Nizwa, Oman</div><div class="percentage">95%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-medal"></i></div><div class="student-initials">H</div><div class="student-name">Haziq Rizvi</div><div class="school-name">Indian School Al Wadi Al Kabir, Muscat, Oman</div><div class="percentage">94%</div></div>
+    </div>
+    <div class="more-students">+ Many More Outstanding Results! 🌟</div>
+</section>
+
+<!-- JEE featured -->
+<section style="max-width: 1200px; margin: 40px auto; padding: 0 24px;">
+    <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> JEE (Main) Result - 2024 (Overseas Division)</h2>
+    <div class="featured-record">
+        <div class="featured-content">
+            <h3>Kasib Rizvi</h3>
+            <div class="school">Indian School Al Wadi Al Kabir, Muscat, Oman</div>
+            <div class="admission-tag" style="display:inline-block; margin-top:16px;">Admission: NIT Delhi (AI & Data Science)</div>
+        </div>
+        <div class="featured-photo">
+            <img src="https://raw.githubusercontent.com/symbioticinstitute/rrsu2/main/student1.jpg" alt="Kasib Rizvi">
         </div>
     </div>
+</section>
 
-    <script>
-        // Contact modal functions
-        function openContactModal() {
-            document.getElementById('contact-modal').style.display = 'flex'; 
-        }
-        
-        function closeContactModal() {
-            document.getElementById('contact-modal').style.display = 'none';
-        }
-        
-        // Promo modal functions
-        function closePromoModal() {
-            document.getElementById('promo-modal').style.display = 'none';
-        }
-        
-        // Show promo modal after 30 seconds
-        setTimeout(() => { 
-            document.getElementById('promo-modal').style.display = 'flex'; 
-        }, 45000);
-        
-        // Add subtle animations to cards on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    card.style.transition = 'all 0.6s ease-out';
-                    
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 100);
-                }, 200 + (index * 100));
-            });
-            
-            // Close modals if clicked outside content
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-            });
+<!-- CBSE 10 2024 -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <h2 class="section-title"><i class="fa-solid fa-book-open"></i> CBSE Class 10 Results - 2024</h2>
+    <div class="cards-grid">
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-trophy"></i></div><div class="student-initials">I</div><div class="student-name">Insha Kamran</div><div class="school-name">Indian School Sur, Oman</div><div class="percentage">97%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-star"></i></div><div class="student-initials">B</div><div class="student-name">Bushra Shaikh</div><div class="school-name">LPS Sharjah, UAE</div><div class="percentage">96%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-medal"></i></div><div class="student-initials">A</div><div class="student-name">Aariz Ahmad</div><div class="school-name">The Central School Dubai, UAE</div><div class="percentage">95%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-bullseye"></i></div><div class="student-initials">N</div><div class="student-name">Nabil Ahmad</div><div class="school-name">Indian School Seeb, Oman</div><div class="percentage">95%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-star"></i></div><div class="student-initials">A</div><div class="student-name">Abdullah Minhaj</div><div class="school-name">Indian School Sohar, Oman</div><div class="percentage">95%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-medal"></i></div><div class="student-initials">S</div><div class="student-name">Syed Arsalan</div><div class="school-name">The Central School Dubai, UAE</div><div class="percentage">93%</div></div>
+    </div>
+    <div class="more-students">+ Many More Exceptional Achievers! 🎉</div>
+</section>
+
+<!-- CBSE 10 2023 -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> CBSE Class 10 Results - 2023 (Online Coaching)</h2>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 30px 0; background: var(--white); padding: 24px; border-radius: 48px;">
+        <div class="stat-item"><div class="stat-number">50%</div><div class="stat-desc">Scored > 90%</div></div>
+        <div class="stat-item"><div class="stat-number">30%</div><div class="stat-desc">Scored > 80%</div></div>
+        <div class="stat-item"><div class="stat-number">20%</div><div class="stat-desc">Scored < 80%</div></div>
+    </div>
+    <div class="cards-grid">
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-trophy"></i></div><div class="student-initials">S</div><div class="student-name">Sana Parween</div><div class="school-name">Indian School Mabela, Muscat, Oman</div><div class="percentage">95.8%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-star"></i></div><div class="student-initials">A</div><div class="student-name">Ayan Iqbal</div><div class="school-name">AK English School Muralesh, India</div><div class="percentage">95%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-medal"></i></div><div class="student-initials">A</div><div class="student-name">Athif Kalim</div><div class="school-name">Indian School Muscat, Oman</div><div class="percentage">93.0%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-bullseye"></i></div><div class="student-initials">S</div><div class="student-name">Shayista Fatima</div><div class="school-name">Indian School Mabela, Muscat, Oman</div><div class="percentage">92%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-star"></i></div><div class="student-initials">Z</div><div class="student-name">Zainab Hafeez</div><div class="school-name">Indian School Seeb, Oman</div><div class="percentage">91.2%</div></div>
+        <div class="record-card"><div class="card-badge"><i class="fa-solid fa-medal"></i></div><div class="student-initials">S</div><div class="student-name">Sadiya Imran</div><div class="school-name">Indian School Al Wadi Al Kabir, Oman</div><div class="percentage">91%</div></div>
+    </div>
+    <div class="more-students">+ Many More Success Stories! 🚀</div>
+</section>
+
+<!-- 2022 highlight -->
+<section style="max-width: 800px; margin: 40px auto; padding: 0 24px;">
+    <h2 class="section-title"><i class="fa-solid fa-star"></i> Academic Year 2022 Highlight</h2>
+    <div class="record-card" style="max-width: 500px; margin:0 auto; text-align:center; align-items:center;">
+        <div class="student-initials" style="margin:0 auto 20px;">R</div>
+        <div class="student-name" style="font-size:2rem;">Ramisa Parween</div>
+        <div class="school-name">Indian School Al Maabela, Muscat</div>
+        <div class="percentage" style="margin:20px auto;">94.2%</div>
+        <div class="admission-tag">PCB: 96% · School Topper</div>
+    </div>
+    <div class="more-students" style="margin-top:30px;">✨ Many More Brilliant Minds ✨</div>
+</section>
+
+<!-- Google reviews -->
+<div style="text-align: center;">
+    <a href="https://www.google.com/search?q=symbiotic+institute#mpd=~13481104329782748208/customers/reviews" target="_blank" class="reviews-btn"><i class="fa-brands fa-google"></i> See What Others Say</a>
+</div>
+
+<!-- CTA -->
+<section class="cta-block">
+    <h2>Join Our Success Story</h2>
+    <p style="max-width:600px; margin:0 auto; opacity:0.9;">Ready to achieve academic excellence? Let us guide your child to outstanding results like these achievers!</p>
+    <a href="https://symbioticlearning.com/contact" class="cta-btn">🚀 Start Your Journey Today</a>
+</section>
+
+<!-- copyright -->
+<div class="copyright">© 2025 Symbiotic Learning. All rights reserved.</div>
+
+<!-- floating sticker -->
+<div class="floating-sticker" onclick="openContactModal()">📞 ENQUIRE NOW</div>
+
+<!-- contact modal -->
+<div class="modal" id="contact-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeContactModal()">&times;</span>
+        <h3 style="color:var(--deep-green);"><i class="fa-solid fa-headset"></i> Contact Us</h3>
+        <p>If you have any questions to ask, please contact us. We will be happy to help you!</p>
+        <div class="phone-number">09149822922</div>
+        <p style="font-weight:600;"><i class="fa-solid fa-heart" style="color:var(--primary-magenta);"></i> Thank You!</p>
+    </div>
+</div>
+
+<!-- timed popup (45s) -->
+<div class="modal" id="promo-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closePromoModal()">&times;</span>
+        <h3 style="color:var(--deep-green);">🎉 Witness Excellence in Action!</h3>
+        <p style="margin:20px 0;">These remarkable results speak for themselves. Your child could be our next success story!</p>
+        <button class="cta-btn" style="border:none; cursor:pointer;" onclick="location.href='https://symbioticlearning.com/contact'">💬 Contact Us Now</button>
+    </div>
+</div>
+
+<script>
+    function openContactModal() { document.getElementById('contact-modal').style.display = 'flex'; }
+    function closeContactModal() { document.getElementById('contact-modal').style.display = 'none'; }
+    function closePromoModal() { document.getElementById('promo-modal').style.display = 'none'; }
+    setTimeout(() => { document.getElementById('promo-modal').style.display = 'flex'; }, 45000);
+    document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) m.style.display = 'none'; }));
+    window.onload = ()=>{
+        document.querySelectorAll('.record-card').forEach((c,i)=>{
+            c.style.opacity='0'; c.style.transform='translateY(10px)';
+            setTimeout(()=>{ c.style.transition='0.4s'; c.style.opacity='1'; c.style.transform='translateY(0)'; }, 100 + i*30);
         });
-    </script>
+    };
+</script>
+
 </body>
 </html>
