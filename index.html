@@ -71,6 +71,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            flex-shrink: 0;
         }
         .logo-icon {
             background: var(--teal-dark);
@@ -97,6 +98,7 @@
         .header-btns {
             display: flex;
             gap: 12px;
+            flex-shrink: 0;
         }
         .btn-header {
             text-decoration: none;
@@ -113,10 +115,46 @@
         .btn-contact {
             background: var(--teal-medium);
             color: white;
+            border: none;
         }
         .btn-header:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
+        }
+
+        /* FIXED: Mobile view button alignment */
+        @media (max-width: 700px) {
+            .top-banner { font-size: 0.9rem; padding: 8px; }
+            header { 
+                padding: 12px 20px;
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .logo-group {
+                justify-content: center;
+            }
+            .header-btns {
+                justify-content: center;
+                width: 100%;
+            }
+            .btn-header {
+                justify-content: center;
+                flex: 1;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 1.6rem; }
+            .featured-record { grid-template-columns: 1fr; text-align: center; padding: 30px 20px; }
+            .featured-photo { width: 140px; height: 140px; }
+            .student-initials { width: 70px; height: 70px; font-size: 2rem; }
+            .percentage { font-size: 1.5rem; padding: 4px 18px; }
+            .floating-sticker { display: none; }
+            .popup-title { font-size: 1.5rem; }
+            .popup-icon { width: 70px; height: 70px; font-size: 50px; }
+            .stats-number { font-size: 1.5rem; }
         }
 
         .hero {
@@ -585,25 +623,6 @@
             border-top: 1px solid rgba(0,0,0,0.05);
             margin-top: 20px;
         }
-
-        @media (max-width: 700px) {
-            .top-banner { font-size: 0.9rem; padding: 8px; }
-            header { padding: 12px 20px; }
-            .logo-icon { width: 42px; height: 42px; font-size: 1.4rem; }
-            .logo-text { font-size: 1rem; }
-            .header-btns { width: 100%; justify-content: center; }
-            .btn-header { padding: 10px 18px; font-size: 0.85rem; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .section-title { font-size: 1.6rem; }
-            .featured-record { grid-template-columns: 1fr; text-align: center; padding: 30px 20px; }
-            .featured-photo { width: 140px; height: 140px; }
-            .student-initials { width: 70px; height: 70px; font-size: 2rem; }
-            .percentage { font-size: 1.5rem; padding: 4px 18px; }
-            .floating-sticker { display: none; }
-            .popup-title { font-size: 1.5rem; }
-            .popup-icon { width: 70px; height: 70px; font-size: 50px; }
-        }
     </style>
 </head>
 <body>
@@ -642,7 +661,7 @@
     </div>
 </section>
 
-<!-- ========== 2026 RESULTS ========== -->
+<!-- 2026 RESULTS -->
 <section style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
     <div class="section-title">
         <i class="fa-solid fa-calendar-check" style="color: var(--coral-bright);"></i> CBSE Class 10 Results 2026
@@ -667,7 +686,7 @@
     <div class="more-students" style="background: var(--gold-light);">🌟 CBSE 2026: Excellence continues from Gulf region! 🌟</div>
 </section>
 
-<!-- ========== 2025 RESULTS ========== -->
+<!-- 2025 RESULTS -->
 <section style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
     <h2 class="section-title"><i class="fa-solid fa-award"></i> CBSE Class 10 Results 2025</h2>
     <div class="cards-grid">
@@ -677,7 +696,7 @@
     </div>
 </section>
 
-<!-- ========== JEE FEATURED ========== -->
+<!-- JEE FEATURED -->
 <section style="max-width: 1200px; margin: 40px auto; padding: 0 24px;">
     <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> JEE (Main) Result - 2024 (Overseas Division)</h2>
     <div class="featured-record">
@@ -692,7 +711,7 @@
     </div>
 </section>
 
-<!-- ========== 2024 RESULTS ========== -->
+<!-- 2024 RESULTS -->
 <section style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
     <h2 class="section-title"><i class="fa-solid fa-book-open"></i> CBSE Class 10 Results - 2024</h2>
     <div class="cards-grid">
@@ -706,7 +725,7 @@
     <div class="more-students">+ Many More Exceptional Achievers! 🎉</div>
 </section>
 
-<!-- ========== 2023 RESULTS (RESTORED) ========== -->
+<!-- 2023 RESULTS -->
 <section style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
     <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> CBSE Class 10 Results - 2023 (Online Coaching)</h2>
     <div class="stats-row">
@@ -725,7 +744,7 @@
     <div class="more-students">+ Many More Success Stories! 🚀</div>
 </section>
 
-<!-- ========== 2022 HIGHLIGHT ========== -->
+<!-- 2022 HIGHLIGHT -->
 <section style="max-width: 800px; margin: 40px auto; padding: 0 24px;">
     <h2 class="section-title"><i class="fa-solid fa-star"></i> Academic Year 2022 Highlight</h2>
     <div class="record-card" style="max-width: 500px; margin: 0 auto; text-align: center; align-items: center;">
@@ -771,7 +790,7 @@
     </div>
 </div>
 
-<!-- Demo Popup -->
+<!-- Demo Popup - appears after 8 seconds (standard timing) -->
 <div class="modal" id="demo-popup">
     <div class="popup-card">
         <div class="popup-header">
@@ -802,10 +821,11 @@
 </div>
 
 <script>
-    // Popup appears after 15 seconds
+    // Popup appears after 8 seconds (standard effective timing)
     setTimeout(() => { 
-        document.getElementById('demo-popup').style.display = 'flex'; 
-    }, 15000);
+        const popup = document.getElementById('demo-popup');
+        if (popup) popup.style.display = 'flex'; 
+    }, 8000);
 
     function openContactModal() { 
         document.getElementById('contact-modal').style.display = 'flex'; 
@@ -817,18 +837,24 @@
         document.getElementById('demo-popup').style.display = 'none'; 
     }
     
+    // Close modals when clicking outside
     document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { 
         if (e.target === m) m.style.display = 'none'; 
     }));
     
+    // Entrance animations
     window.onload = ()=>{
         document.querySelectorAll('.record-card').forEach((c,i)=>{
-            c.style.opacity='0';
-            setTimeout(()=>{ c.style.transition='0.35s ease'; c.style.opacity='1'; }, 50 + i*30);
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(15px)';
+            setTimeout(() => { 
+                c.style.transition = '0.4s ease'; 
+                c.style.opacity = '1';
+                c.style.transform = 'translateY(0)';
+            }, 80 + i * 40);
         });
     };
 </script>
 
 </body>
 </html>
-
